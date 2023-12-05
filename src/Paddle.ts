@@ -4,7 +4,11 @@ const paddleHeight = 100;
 
 export default class Paddle extends Container {
   private sprite: Sprite;
-  constructor(x: number, y: number) {
+  private velY = 0;
+  private speed = 2;
+  private side: "left" | "right";
+  
+  constructor(x: number, y: number, side: "left" | "right") {
     super();
     this.sprite = Sprite.from("assets/CatPaddle.png");
     this.sprite.scale.set(0.5);
@@ -13,6 +17,16 @@ export default class Paddle extends Container {
     this.y = y - paddleHeight / 2;
     // @ts-ignore
     this.addChild(this.sprite);
+
+    this.side = side;
+  }
+
+  public update(dt: number) {
+    // Check keyboard input and update the y velocity accordingly
+
+    // If the paddle hits the top or bottom of the screen, stop it from moving further
+
+    // Update the y position of the paddle based on the current velocity
   }
 
   public get leftSide() {
